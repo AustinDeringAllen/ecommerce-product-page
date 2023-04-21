@@ -1,16 +1,24 @@
 import { useStore } from "@nanostores/react";
 import { useState } from "react";
-import { cartItem } from "../store";
+import { cartItem, itemAmount } from "../store";
 
 const Cart = () => {
   const [open, setOpen] = useState(false);
 
+  const $cartItem = useStore(cartItem);
+
   return (
     <>
       <button
-        className="cursor-pointer"
+        className="relative cursor-pointer"
         onClick={() => setOpen((prev) => !prev)}
       >
+        {$cartItem && (
+          <div className="absolute -top-2 -right-2 bg-normal-orange rounded-full text-xs text-white px-2">
+            {$cartItem.amount}
+          </div>
+        )}
+
         <img
           src="/ecommerce-product-page/images/icon-cart.svg"
           alt="Cart Icon"
