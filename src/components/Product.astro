@@ -1,0 +1,12 @@
+---
+import ProductCartDetails from "./ProductCartDetails";
+import ProductDetails from "./ProductDetails";
+import ProductImage from "./ProductImage";
+---
+
+<div class="lg:flex lg:p-12 lg:py-24">
+  <ProductImage client:load />
+  <div class="p-4 lg:w-1/2 lg:flex lg:flex-col lg:justify-center xl:px-20">
+    <ProductDetails client:load />
+  </div>
+</div>
